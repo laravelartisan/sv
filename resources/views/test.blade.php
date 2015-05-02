@@ -1,0 +1,6 @@
+
+
+
+   @if($message)
+ {{ $message }}
+ @endif
