@@ -23,11 +23,11 @@ Route::controllers([
 
 Route::get('/',function(){
 
-    return redirect()->to('test');
+    return redirect()->to('testt');
 
 //    return storage_path().'<br>'.base_path().'/public';
 });
-Route::get('test',function(){
+Route::get('testt',function(){
 
             return view('test')->with('message','hello everything is ok  !!!!!!');
 
@@ -38,3 +38,8 @@ get('upload',function(){
 });
 
 post('apply/multiple_upload','ApplyController@multiple_upload');
+
+get('error', function(){
+    throw new \Exception;
+});
+

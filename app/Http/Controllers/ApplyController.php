@@ -4,6 +4,7 @@ use Validator;
 use Redirect;
 use Request;
 use Session;
+use Intervention\Image\Facades\Image;
 class ApplyController extends Controller {
     public function multiple_upload() {
         // getting all of the post data
@@ -20,7 +21,10 @@ class ApplyController extends Controller {
             if($validator->passes()){
                 $destinationPath = 'uploads';
                 $filename = $file->getClientOriginalName();
-                $upload_success = $file->move($destinationPath, $filename);
+//                dd(Image::make($file->getRealPath())->resize(468,249));
+               $testImage = Image::make($file->getRealPath())->resize(468,249)->save('uploads/'.$filename);
+//                          dd($testImage);
+//                $upload_success = $file->move($destinationPath, $filename);
 //                dd($upload_success);
 
                 $uploadcount ++;
