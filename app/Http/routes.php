@@ -43,3 +43,7 @@ get('error', function(){
     throw new \Exception;
 });
 
+Route::get('account/login', function() {
+    return View::make('login');
+});
+Route::post('account/login', 'AccountController@login');
